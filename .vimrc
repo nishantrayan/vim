@@ -50,6 +50,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 :imap <M-space> <Esc>
+:imap <c-s> <Esc>:w<CR>a
+:nmap <c-s> :w<CR>
 
 " The Silver Searcher
 if executable('ag')
