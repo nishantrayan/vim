@@ -65,3 +65,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 let g:ctrlp_open_multiple_files = 'vjr'
+:map <leader>r :!rspec %<cr>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
