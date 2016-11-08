@@ -48,7 +48,8 @@ syntax on
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_regexp = 1
 :imap <M-space> <Esc>
 :imap <c-s> <Esc>:w<CR>a
 :nmap <c-s> :w<CR>
@@ -70,3 +71,5 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
+
+:set autoread
