@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 "" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Chiel92/vim-autoformat'
 "" plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 "" Git plugin not hosted on GitHub
@@ -57,7 +58,7 @@ let g:ctrlp_regexp = 1
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ 
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -73,3 +74,22 @@ command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
 :set autoread
+
+" Turn off vi compatibility
+set nocompatible
+
+set smartindent
+set autoindent
+
+" load indent file for the current filetype
+filetype indent on
+:set shiftwidth=2
+
+" configuring fugitive to do vertical diff
+" https://github.com/tpope/vim-fugitive/issues/508
+set diffopt+=vertical
+
+" some shortcuts for my use
+:map <leader>lr :Autoformat ruby<CR>
+:nmap <c-q> :q<CR>
+:imap <c-q> <Esc>:q<CR>
