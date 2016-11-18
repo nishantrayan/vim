@@ -58,7 +58,7 @@ let g:ctrlp_regexp = 1
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ 
+  set grepprg=ag\ --nogroup\ --nocolor 
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -67,16 +67,12 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 let g:ctrlp_open_multiple_files = 'vjr'
-:map <leader>r :!rspec %<cr>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
 :set autoread
-
-" Turn off vi compatibility
-set nocompatible
 
 set smartindent
 set autoindent
