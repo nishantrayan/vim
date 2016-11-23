@@ -70,7 +70,8 @@ let g:ctrlp_open_multiple_files = 'vjr'
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind \ (backward slash) to grep shortcut
 command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+nnoremap \s :Ag<SPACE>
+:vmap \c I#<Esc>
 
 :set autoread
 
